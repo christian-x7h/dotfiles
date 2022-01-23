@@ -31,3 +31,11 @@ alias dotfiles='/opt/homebrew/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HO
 # Improve 'ls' behavior and colors to match prompt
 export LSCOLORS='dxfxcxdxbxegedabagacad'
 alias ls='ls -GFh'
+
+##############
+# Dev Tooling
+#############
+
+# Enable Jenv for JVM management
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
