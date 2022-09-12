@@ -1,0 +1,2 @@
+# Do not activate by default (must run `conda activate`)
+auto_activate_base: false
