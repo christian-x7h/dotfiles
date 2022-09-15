@@ -16,10 +16,20 @@ if type brew &>/dev/null; then
 	compinit -C
 fi
 
+############
+# Functions
+############
+
+# Parse current git branch, if any
+function parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/' -e 's/[()]//g' -e 's/.*/ (&)/'
+}
+
 #########
 # Prompt
 #########
-PROMPT="%F{cyan}@%f%F{cyan}%m%f%F{cyan}:%f%F{yellow}%~%f $ "
+setopt PROMPT_SUBST
+PROMPT='%F{cyan}@%f%F{cyan}%m%f%F{cyan}:%f%F{yellow}%~%f%F{white}$(parse_git_branch)%f $ '
 
 #########
 # Aliases
